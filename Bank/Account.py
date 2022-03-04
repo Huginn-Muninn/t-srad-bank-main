@@ -1,6 +1,5 @@
 class Account:
     numberOfAccounts = 0
-    NegativeBalanceNotAllowed = ValueError("B positive :)")
     
     def __init__(self,amount):
         Account.numberOfAccounts += 1
