@@ -8,18 +8,23 @@ def run_around_tests():
     Account.reset()
 
 def test_first_account_gets_number_1():
-    account = Account()
+    account = Account(2500)
     assert account.number == 1
 
 @pytest.fixture
 def two_accounts():
-    Account()
-    Account()
+    Account(2500)
+    Account(2500)
 
 def test_number_of_accounts_increases_on_creation(two_accounts):
     assert Account.numberOfAccounts == 2
 
 # Write your tests below here.
 def test_amount_start():
-    account = Account()
+    account = Account(2500)
     assert account.amount == 2500
+    
+def test_withdraw():
+    account = Account(2500)
+    account.withdraw(1500)
+    assert account.amount == 1000

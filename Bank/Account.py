@@ -1,11 +1,14 @@
 class Account:
     numberOfAccounts = 0
-    startamount= 2500
     
-    def __init__(self):
+    
+    def __init__(self,amount):
         Account.numberOfAccounts += 1
         self.number = Account.numberOfAccounts
-        self.amount = Account.startamount
+        self.amount = amount
+        
+    def withdraw(self, number):
+        self.amount -= number
     
     @classmethod
     def reset(cls):
