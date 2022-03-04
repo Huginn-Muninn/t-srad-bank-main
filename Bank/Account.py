@@ -25,8 +25,12 @@ class Account:
         self.amount += number
         
     def transfer(self, number, account):
-        self.amount -= number
-        account.amount += number
+        if self.amount - number < 0:
+            IllegalTransfer = ValueError("Account balance to low to transfer that amount")
+            raise IllegalTransfer
+        else:
+            self.amount -= number
+            account.amount += number
      
     @classmethod
     def reset(cls):

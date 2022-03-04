@@ -51,7 +51,13 @@ def test_NegativeBalanceNotAllowed():
         account = Account(-2500)
 
 def test_IllegalWithdrawal():
+    account = Account(2500)
     with pytest.raises(ValueError):
-        account = Account(2500)
         account.withdraw(3000) 
+
+def test_IllegalTransfer():
+    account1 = Account(2500)
+    account2 = Account(2500)
+    with pytest.raises(ValueError):
+        account1.transfer(3000, account2)
     
