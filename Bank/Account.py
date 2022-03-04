@@ -3,7 +3,9 @@ class Account:
     
     def __init__(self):
         Account.numberOfAccounts += 1
+        Account.amount = 2500
         self.number = Account.numberOfAccounts
+        self.amount = Account.amount
     
     @classmethod
     def reset(cls):

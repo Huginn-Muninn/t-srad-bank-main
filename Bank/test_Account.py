@@ -20,3 +20,9 @@ def test_number_of_accounts_increases_on_creation(two_accounts):
     assert Account.numberOfAccounts == 2
 
 # Write your tests below here.
+@pytest.fixture
+def one_account():
+    Account()
+
+def test_amount_start(one_account):
+    assert Account.amount == 2500
