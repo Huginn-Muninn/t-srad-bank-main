@@ -1,9 +1,13 @@
 class Account:
     numberOfAccounts = 0
+    amount =  0
+    listi = []
     
-    def __init__(self,amount):
+    def __init__(self,iamount):
+        amount = iamount
         Account.numberOfAccounts += 1
         self.number = Account.numberOfAccounts
+        Account.listi.append(self)
         if amount < 0:
             NegativeBalanceNotAllowed = ValueError("Negative Balance Is Not Allowed")
             raise NegativeBalanceNotAllowed
@@ -30,8 +34,15 @@ class Account:
         else:
             self.amount -= number
             account.amount += number
+    
+    def total_sum(self):
+        sum = 0
+        for x in Account.listi:
+            sum += x.amount
+        return sum
      
     @classmethod
     def reset(cls):
         Account.numberOfAccounts = 0
-        
+        Account.amount =  0
+        Account.listi = []

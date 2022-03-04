@@ -60,4 +60,10 @@ def test_IllegalTransfer():
     account2 = Account(2500)
     with pytest.raises(ValueError):
         account1.transfer(3000, account2)
+
+def test_total_sum():
+    account1 = Account(2500)
+    account2 = Account(2500)
+    assert account1.total_sum() == 5000
+    assert account2.total_sum() == 5000
     
