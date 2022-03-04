@@ -1,11 +1,15 @@
 class Account:
     numberOfAccounts = 0
-    
+    NegativeBalanceNotAllowed = ValueError("B positive :)")
     
     def __init__(self,amount):
         Account.numberOfAccounts += 1
         self.number = Account.numberOfAccounts
-        self.amount = amount
+        if amount < 0:
+            NegativeBalanceNotAllowed = ValueError("Negative Balance Is Not Allowed")
+            raise NegativeBalanceNotAllowed
+        else:
+            self.amount = amount
        
     def __str__ (self):
         return str(self.number).zfill(6)
@@ -23,3 +27,4 @@ class Account:
     @classmethod
     def reset(cls):
         Account.numberOfAccounts = 0
+        

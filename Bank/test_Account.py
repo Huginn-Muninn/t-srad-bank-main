@@ -45,5 +45,8 @@ def test_transfer():
 def test_str():
     account = Account(2500)
     assert account.__str__() == "000001"
-    
+
+def test_NegativeBalanceNotAllowed():
+    with pytest.raises(ValueError):
+        account = Account(-2500)
     
