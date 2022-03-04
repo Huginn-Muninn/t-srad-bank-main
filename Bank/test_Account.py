@@ -28,3 +28,18 @@ def test_withdraw():
     account = Account(2500)
     account.withdraw(1500)
     assert account.amount == 1000
+    
+def test_deposit():
+    account = Account(2500)
+    account.deposit(1500)
+    assert account.amount == 4000
+
+def test_transfer():
+    account1 = Account(2500)
+    account2 = Account(2500)
+    account1.transfer(1000,account2)
+    assert account1.amount + account2.amount == 5000
+    assert account1.amount == 1500
+    assert account2.amount == 3500
+    
+    
