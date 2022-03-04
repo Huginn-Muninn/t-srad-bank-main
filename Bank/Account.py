@@ -15,7 +15,11 @@ class Account:
         return str(self.number).zfill(6)
         
     def withdraw(self, number):
-        self.amount -= number
+        if self.amount - number < 0:
+            IllegalWithdrawal = ValueError("Account balance to low to withdraw that amount")
+            raise IllegalWithdrawal
+        else:
+            self.amount -= number
 
     def deposit(self, number):
         self.amount += number

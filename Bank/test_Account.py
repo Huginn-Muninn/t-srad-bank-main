@@ -49,4 +49,9 @@ def test_str():
 def test_NegativeBalanceNotAllowed():
     with pytest.raises(ValueError):
         account = Account(-2500)
+
+def test_IllegalWithdrawal():
+    with pytest.raises(ValueError):
+        account = Account(2500)
+        account.withdraw(3000) 
     
