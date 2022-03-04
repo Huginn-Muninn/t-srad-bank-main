@@ -6,7 +6,10 @@ class Account:
         Account.numberOfAccounts += 1
         self.number = Account.numberOfAccounts
         self.amount = amount
-           
+       
+    def __str__ (self):
+        return str(self.number).zfill(6)
+        
     def withdraw(self, number):
         self.amount -= number
 
